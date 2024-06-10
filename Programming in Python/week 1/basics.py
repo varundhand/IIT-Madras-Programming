@@ -42,4 +42,17 @@
 # print(drink[-1]) # returns 'e' # Negative indexing starts from the end of the string
 
 # print("c">"b") 
-print(type((1 > 0) and (-1 < 0) and (1 == 1)))
+# print(type((1 > 0) and (-1 < 0) and (1 == 1)))
+
+# print(type((1 > 0) and (-1 < 0) and (1 == 1)))
+# word = '138412345678901938'
+# print(word[4:13])
+# name1 = input("Enter your first name: ")
+# name2 = input("Enter your last name: ")
+# print(input()<input())
+
+total_mins = input("enter total minutes")
+hrs = int(total_mins) // 60
+mins = int(total_mins) % 60
+
+print(hrs,":", mins)
