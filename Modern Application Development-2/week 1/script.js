@@ -77,11 +77,20 @@ function calculateSimpleInterest(
     endingDate
   ) {
     
+    //TODO: add type checks for all the inputs
+    if (isNaN(principal) || isNaN(dailyInterest)){
+        return -1 
+    }
 
-    var yes = new Date(startingDate);
-    var tod = new Date(endingDate);
-    var diff = tod - yes;
-    var diffDays = diff/ (1000*60*60*24)
+    const yes = new Date(startingDate);
+    const tod = new Date(endingDate);
+
+    if (isNaN(yes.getTime()) || isNaN(tod.getTime())){
+        return -1 
+    }
+
+    const diff = tod - yes;
+    const diffDays = diff/ (1000*60*60*24)
   
     const interest = (principal*dailyInterest*diffDays) / 100;
   
@@ -89,33 +98,93 @@ function calculateSimpleInterest(
   
   }
 
-console.log(calculateSimpleInterest(20000, 1, "2020-12-27", "2021-08-27"))
+// console.log(calculateSimpleInterest(20000, 1, "2020-12-27", "2021-08-27"))
 
 
 
-  function calculateCompoundInterest(
-    principal,
-    dailyInterest,
-    startingDate,
-    endingDate
-  ) {
+function calculateCompoundInterest(
+principal,
+dailyInterest,
+startingDate,
+endingDate
+) {
+    if (isNaN(principal) || isNaN(dailyInterest)){
+        return -1 
+    }
+
+    const yes = new Date(startingDate);
+    const tod = new Date(endingDate);
+
+    if (isNaN(yes.getTime()) || isNaN(tod.getTime())){
+        return -1 
+    }
+    const diff = tod - yes;
+    const diffDays = diff/ (1000*60*60*24)
+    // console.log('diffDays',diffDays);
+
+    const subInterest = 1 + (dailyInterest/100)
+    // console.log("subInterest",subInterest);
+
+    const subInterestPower = subInterest ** diffDays
+    // console.log("subInterestPower", subInterestPower)
+
+    const interest = principal*(subInterestPower - 1)
+    // console.log('interest',interest)
+
+  return Math.floor(interest);
+
+}
+
+console.log(calculateCompoundInterest(20000,1,"2020-12-27","2021-08-27"))
   
-  // Add your code here
-  
-//   return Math.floor(interest);
-  
-  }
-  
-  function extraAmountPercentage(
-    principal,
-    dailyInterest,
-    startingDate,
-    endingDate
-  ) {
-  
-  // Add your code here
-  
-//   return Math.floor(percentage);
-  
-  }
-  
+function extraAmountPercentage(
+principal,
+dailyInterest,
+startingDate,
+endingDate
+) {
+    if (isNaN(principal) || isNaN(dailyInterest)){
+        return -1 
+    }
+
+    const yes = new Date(startingDate);
+    const tod = new Date(endingDate);
+
+    if (isNaN(yes.getTime()) || isNaN(tod.getTime())){
+        return -1 
+    }
+
+    const simpleInterest = calculateSimpleInterest(principal, dailyInterest, startingDate,endingDate)
+    const compoundInterest = calculateCompoundInterest(principal, dailyInterest, startingDate,endingDate)
+    // console.log(simpleInterest, compoundInterest);
+
+    const extraAmount = compoundInterest - simpleInterest
+    const percentage = (extraAmount/simpleInterest)*100
+
+
+    return Math.floor(percentage);
+
+}
+// console.log(extraAmountPercentage(20000,1,"2020-12-27","2021-08-27"))
+
+setTimeout (() => console. log( 'hello from setTimeOut one'), 0)
+console. log( 'hello for main one')
+setTimeout (() => console. log( 'hello from setTimeOut two'), 0)
+console. log( 'hello from main two')
+
+setTimeout(() => {
+    document.getElementById('id').style.backgroundColor = 'red'
+}, 10)
+
+let startNamePrinter = (name) => {1
+    let x = name.split('').reverse()
+    let handler = setInterval(() => {
+        let y = x. pop ()
+        console.log((y))
+    }, 1000)
+    setTimeout ( () => {
+        clearInterval (handler)
+    }, (name.length + 1)*1000)
+}
+
+startNamePrinter('orange')
