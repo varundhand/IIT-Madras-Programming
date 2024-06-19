@@ -121,3 +121,13 @@
 // spread operator used as remainder
 // const [a, b, ...c] = [1,2,3,4,5,6,7,8,9]
 // console.log(c)
+
+
+// Node.js:
+// Node.js is a runtime environment that allows you to run JavaScript code on the server side, outside of the browser. 
+// It is built on the V8 JavaScript engine, which is the same engine that powers Google Chrome.
+// Node.js allows developers to use JavaScript to write server-side code, build scalable network applications, do asynchronous I/O operations,
+// and interact with the file system and other system-level functionalities.
+
+// npm (Node Package Manager):
+// npm is the default package manager for Node.js. It is used to install, manage, and share packages of reusable code.
