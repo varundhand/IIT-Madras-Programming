@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Website</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="nav-bar"></div>
+        
+        <div class="cart">Cart: {{cart}}</div>
+        <div class="product-display">
+          <div class="product-container">
+            <div class="product-image">
+              <!-- image goes here , using V BIND DIRECTIVE --> 
+               <!-- V BIND is used to dynamically bind an attribute to an expression -->
+                <a :href="url">
+                    <img v-bind:src="image" :alt="alternative">
+                </a>
+               <!-- shorthand of v-bind: is just ':' -->
+                <!-- <img :src="image" alt=""> -->
+            </div>
+            <div class="product-info">
+              <h1>{{ product }}</h1>
+              <p>{{description}}</p>
+              <!-- CONDITIONAL RENDERING using v-if= and v-else-->
+               <p v-if="inStock">In Stock</p>
+               <p v-else="inStock">Out of Stock</p>
+
+               <!-- chained conditional logic -->
+                <p v-if="inventory > 10">A lot of pieces left</p>
+                <p v-else-if="inventory <= 10 && inventory > 0" style="color: red;"> Only a few pieces left. Hurry now!</p>
+                <p v-else>No pieces left :(</p>
+
+                <!-- Rendering a list using v-for directive -->
+                 <!-- for looping over details collection -->
+                <ul>
+                    <li v-for="detail in details"> -> {{detail}}</li>
+                </ul>
+
+                <!-- we need to give unique key while using v-for loop -->
+                <div v-for="variant in variants" :key="variant.id">
+                    {{variant.color}}
+                </div>
+                <button class="button" v-on:click="cart += 1">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <script src="./app.js" type="module"></script>
+    
+</body>
+</html>
