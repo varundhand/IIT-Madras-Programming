@@ -17,17 +17,19 @@
               <!-- image goes here , using V BIND DIRECTIVE --> 
                <!-- V BIND is used to dynamically bind an attribute to an expression -->
                 <a :href="url">
-                    <img v-bind:src="image" :alt="alternative">
+                    <img v-bind:src="image" :alt="alternative" :class="[!inStock ? 'out-of-stock-img' : '']">
                 </a>
                <!-- shorthand of v-bind: is just ':' -->
                 <!-- <img :src="image" alt=""> -->
             </div>
             <div class="product-info">
-              <h1>{{ product }}</h1>
+              <h1>{{ title }}</h1>
               <p>{{description}}</p>
               <!-- CONDITIONAL RENDERING using v-if= and v-else-->
                <p v-if="inStock">In Stock</p>
                <p v-else="inStock">Out of Stock</p>
+
+                <div class="sale">{{onSaleComputed}}</div>
 
                <!-- chained conditional logic -->
                 <p v-if="inventory > 10">A lot of pieces left</p>
@@ -41,10 +43,22 @@
                 </ul>
 
                 <!-- we need to give unique key while using v-for loop -->
-                <div v-for="variant in variants" :key="variant.id">
-                    {{variant.color}}
+                <!-- @mouseover="updateImage(variant.image)"  -->
+                <div 
+                  v-for="(variant,index) in variants" 
+                  :key="variant.id" 
+                  @mouseover="updateVariant(index)" 
+                  class="color-circle"
+                  :style="{backgroundColor: variant.color}" 
+                >
+                    {{}}
                 </div>
-                <button class="button" v-on:click="cart += 1">Add to Cart</button>
+                <!-- <button class="button" v-on:click="cart += 1">Add to Cart</button> -->
+                <!-- using a method "addToCart"  -->
+                <!-- using custom class , we can also using ternary syntax-->
+                <!-- <button :disabled="!inStock" :class="{disabledButton: !inStock}" class="button" v-on:click="addToCart">Add to Cart</button> -->
+                <button :disabled="!inStock" :class="[!inStock ? 'disabledButton' : '']" class="button" v-on:click="addToCart">Add to Cart</button>
+                <!-- inStock is now a computed property instead of a data property -->
             </div>
           </div>
         </div>

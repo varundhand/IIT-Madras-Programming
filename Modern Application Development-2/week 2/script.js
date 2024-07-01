@@ -114,3 +114,18 @@
 // .reduce((a, i) => a + i, (a = 0))
 // console. log(z)
 
+
+const a = {
+    'x1': 10,
+    func1: function() {
+        console.log(this.x1);
+    },
+}
+const b = {
+    'x1': 20,
+    func2: function(){
+        c = a.func1
+        c.apply(b, [10])
+    }
+}
+b.func2()

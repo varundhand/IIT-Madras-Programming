@@ -125,12 +125,12 @@
 
 #! find the length of longest word from the set of words entered by the user
 
-input_text = input("Enter text: ")
-while input_text != '-1':
-  max_length = 0
-  text_split = input_text.split(' ')
-  for i in text_split:
-    if max_length < len(i):
-      max_length = len(i)
-  print(max_length)
-  input_text = input("Enter text: ")
+# input_text = input("Enter text: ")
+# while input_text != '-1':
+#   max_length = 0
+#   text_split = input_text.split(' ')
+#   for i in text_split:
+#     if max_length < len(i):
+#       max_length = len(i)
+#   print(max_length)
+#   input_text = input("Enter text: ")
