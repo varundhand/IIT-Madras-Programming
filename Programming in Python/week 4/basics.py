@@ -9,11 +9,14 @@ print(first_ten[len(first_ten) -1])
 # l1 = [1,2,3]
 # l2 = [1,2,3]
 # l3 = [1,3,2]
-
-# print(l1 == l2)
+[:]
+# print(l1 == l2)[:]
 # print(l2 == l3)
 
 # hence, list is ordered and subscribtable and mutable
+# tuple themselves are immutable but if they contain mutable objects, they can be modified
+#! if the values inside a tuple are immutable, then its hashable
+#! if the values inside a tuple are mutable, then its unhashable 
 
 # making copy of a list
 l1 = [1,2,3]
@@ -23,6 +26,9 @@ l4 = l1.copy()
 l5 = l1
 
 #  if we check (l5 is l1), it would return true as they have the same memory location
+
+# in order to make tuple we need to add a comma to the integer
+t = (1,)
 
 # in this function the arugument is the whole 'x' list
 #* if the argument is mutable, then its 'call by refrence' otherwise its 'call by value'
@@ -63,6 +69,26 @@ print([1,2,3] <[2]) # prints True because it compares the first elements of both
 # searching is faster in set than list
 # it takes more computer space than list
 # set is unordered i.e. it is not subscribtable and cant be used for indexing
+
+
+#! Types of function arguments 
+# 1. positional arguments
+def greet(name, age):
+  print(f"Hello {name}, you are {age} years old.")
+
+greet("Alice", 25)
+
+# 2. keyword arguments
+greet(age=30, name="Bob") # the order of the arguments does not matter as we exclusively define the arguments assigned to their specific parameters 
+
+# 3. default arguments
+def greet(name, age=18): # if the age is not provided, it will be set to 18
+  print(f"Hello {name}, you are {age} years old.")
+
+# 4. variable length arguments
+def greet(*names): # the * before the parameter name allows us to pass any number of arguments
+  for name in names:
+    print(f"Hello {name}")
 
 
 

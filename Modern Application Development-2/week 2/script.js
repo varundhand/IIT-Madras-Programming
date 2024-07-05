@@ -115,17 +115,41 @@
 // console. log(z)
 
 
-const a = {
-    'x1': 10,
-    func1: function() {
-        console.log(this.x1);
-    },
-}
-const b = {
-    'x1': 20,
-    func2: function(){
-        c = a.func1
-        c.apply(b, [10])
-    }
-}
-b.func2()
+// const a = {
+//     'x1': 10,
+//     func1: function() {
+//         console.log(this.x1);
+//     },
+// }
+// const b = {
+//     'x1': 20,
+//     func2: function(){
+//         c = a.func1
+//         c.apply(b, [10])
+//     }
+// }
+// b.func2()
+
+// document.getElementById('id').style.backgroundColor = 'red'
+
+
+const person1 = {
+  name: 'Alice',
+  greet: function(greeting, punctuation) {
+    console.log(greeting + ', ' + this.name + punctuation);
+  }
+};
+
+const person2 = { name: 'Bob' };
+
+// person1's greet method, but calling it with person2 as this
+person1.greet.call(person2, 'Hi', '!'); // Output: "Hi, Bob!"
+
+// person1's greet method, but calling it with person2 as this and arguments as an array
+person1.greet.apply(person2, ['Hello', '!!']); // Output: "Hello, Bob!!"
+
+// person1's greet method, creating a new function with person2 as this
+const greetBob = person1.greet.bind(person2, 'Hey');
+
+// Calling the bound function later
+greetBob('?'); // Output: "Hey, Bob?"
