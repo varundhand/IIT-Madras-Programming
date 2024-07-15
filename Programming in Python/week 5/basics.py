@@ -73,7 +73,7 @@ s3= [7,8,9]
 matrix1 = [r1,r2,r3]
 matrix2 = [s1,s2,s3]
 
-print(matrix1)
+# print(matrix1)
 
 C = [[0,0,0],[0,0,0],[0,0,0]]
 
@@ -87,6 +87,52 @@ for i in range(dim):
     for j in range(dim):
         for k in range(dim):
             C[i][j]= C[i][j] + matrix1[i][k]*matrix2[k][j]
-            print(C[i][j])
+            # print(C[i][j])
 
-print(C)
+# print(C)
+
+
+mydict = {'name': 'Jack', 'age': 26, 'city': 'New York', 'marks': [70, 80, 90, 20, 32, 38, 2]}
+
+# print(sorted(mydict['marks'])) # Output: Jack
+
+#! lambda functions are small anonymous functions
+# lambda arguments : expression
+add = lambda x,y : x+y
+# print(add(5,3))
+
+#! enumerate function is used to iterate through the list and get the index of the element
+# enumerate(iterable, start=0)
+# iterable - a sequence, an iterator, or objects that supports iteration
+# start (optional) - enumerate() starts counting from this number. If start is omitted, 0 is taken as start.
+# Return value: Returns the enumerate object
+fruits = ['apple', 'banana', 'cherry']
+
+# for fruit in enumerate(fruits):
+#     print(fruit)
+
+#! Zip function is used to combine two lists
+# zip(list1, list2)
+# retuns a zip object
+
+size = [1, 2, 3]
+
+# print(list(zip(fruits,size)))
+
+a = [10, 20, 30, 40, 50]
+b = [5, 10, 20, 5, 35]
+
+myDictionary = {'varun': 10, 'rohan': 20, 'mohit': 30, 'sohan': 40, 'gohan': 50}
+
+myDictionary.pop('varun')
+
+print(myDictionary)
+
+del myDictionary['rohan']
+
+print(myDictionary)
+
+myDictionary.popitem() # removes the last item
+
+print(myDictionary)
+
