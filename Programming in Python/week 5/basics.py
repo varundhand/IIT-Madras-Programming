@@ -124,15 +124,26 @@ b = [5, 10, 20, 5, 35]
 
 myDictionary = {'varun': 10, 'rohan': 20, 'mohit': 30, 'sohan': 40, 'gohan': 50}
 
-myDictionary.pop('varun')
+myDictionary.pop('varun') # returns the popped value
 
 print(myDictionary)
 
-del myDictionary['rohan']
+del myDictionary['rohan'] # does not return the popped value
 
 print(myDictionary)
 
 myDictionary.popitem() # removes the last item
 
 print(myDictionary)
+
+#! Map function
+# map(function, iterable(s))
+
+list_1 = [1,2,3,4,5,6,7,8,9,10]
+list_2 = [10,20,30,40,50,60,70,80,90,100]
+
+def add(x,y):
+    return x + y
+
+print(list(map(add, list_1, list_2)))
 

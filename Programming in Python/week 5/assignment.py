@@ -1,30 +1,34 @@
 # Grpa - 5.1 
 def dictionary_operations(fruit_prices:dict, fruits:list):
     # add the fruit fruits[0] to fruit_prices with cost 3
-    ...
+    fruit_prices[fruits[0]] = 3
     order_print(fruit_prices) # this function is in the hidden code 
 
     # modify the cost of fruits[1] as 2 in fruit_prices
-    ...
+    fruit_prices[fruits[1]]  = 2
     order_print(fruit_prices)
 
     # increase the cost of fruits[2] by 2 in fruit_prices
-    ...
+    fruit_prices[fruits[2]] += 2
     order_print(fruit_prices)
 
     # delete both key and value for fruits[3] from fruit_prices
-    ...
+    del fruit_prices[fruits[3]]
     order_print(fruit_prices)
 
     # print the price of fruits[4]
 
-    ...
+    print(fruit_prices[fruits[4]])
 
     # print the names of fruits in fruit prices as a list sorted in ascending order
-    ...
+    print(sorted(list(fruit_prices.values())))
 
     # print the prices of the fruits as a list sorted in ascending order.
     ...
+
+fruits_prices = {'apple': 32, 'banana': 11, 'orange': 33, 'kiwi': 51, 'grapes': 24}
+# print(sorted(fruits_prices.values()))
+# print(sorted(fruits_prices.values(), reverse=True)) # for reverse
 
 def increase_prices(fruit_prices:dict) -> None:
     '''
@@ -38,6 +42,7 @@ def increase_prices(fruit_prices:dict) -> None:
     '''
     ...
 
+
 def dict_from_string(string:str,key_type,value_type):
     '''
     Given a string where each line has a comma seperated key-value pair, create a dictionary out of it. Also convert the types of key and values to the given types.
@@ -50,14 +55,39 @@ def dict_from_string(string:str,key_type,value_type):
     Return:
     D - dict: the output dictionary
     '''
-    ...
+    D = {}
+    split_val = string.split('\n')
+    for val in split_val:
+        key,val = val.split(',')
+        D[key_type(key)] = value_type(val)
+
+    return D
+
+
+# yeet = "apple:2"
+# key,val = yeet.split(':')
+# newDict = {}
+# newDict[key] = int(val)
+# print(newDict)
 
 def dict_to_string(D:dict) -> str:
     '''
     Convert the given dictionary back to the string fromat produced by `dict_from_string`. Again, do not use loops or conditionals, use comprehensions.
 
     '''
-    ...
+myObj =    {
+'Apple':2,
+'Banana':3,
+'Orange':4,
+'Grapes':3,
+'Papaya':5
+}
+
+string = ""
+for key,val in myObj.items():
+    string+= f'{key},{val}\n'
+
+# print(string)
 
 
 # Grpa 5.2
@@ -72,13 +102,28 @@ def total_price(fruit_prices: dict, purchases) -> float:
     Return:
     total_price: float
     '''
-    ...
+    total = 0
+    for key,value in purchases: 
+        total += fruit_prices[key] * value
+    return float(total)
+    
+
+
+
+def isNum(x):
+    return x.isnumeric()
+
+# print(list(map(int, (list(filter(isNum, random_list))))))
 
 def total_price_no_loops(fruit_prices: dict, purchases) -> float:
     '''
     Compute the total price without loops.
     '''
-    ...
+    return (float(sum(list(fruits_prices[key]*val for key,val in purchases))))
+
+# print(total_price_no_loops(fruits_prices,purchases))
+
+# print(total_price(fruits_prices,purchases))
 
 def find_cheapest_fruit(fruit_prices:dict) -> str:
     '''
@@ -90,15 +135,63 @@ def find_cheapest_fruit(fruit_prices:dict) -> str:
     Return:
     cheapest_fruit: str - the fruit with the lowest price
     '''
-    ...
+    cheapest_price = 10000
+    cheapest_fruit = ''
+    for key,val in fruit_prices.items():
+        if val<cheapest_price:
+            cheapest_price=val
+            cheapest_fruit=key
+    return cheapest_fruit
 
 def find_cheapest_fruit_no_loops(fruit_prices:dict) -> str:
     '''
     Find the cheapest fruit using min function. Do not use loops
     '''
-    ...
+    # return min()
 
+print( min(list((price,fruit) for fruit,price in fruits_prices.items()))[1])
+
+fruits_prices = {'Apple':10.0,'Banana':3.0,'Orange':4.0,'Grapes':3.0,'Papaya':5.0}
+# print(fruits_prices)
+purchases = [("Apple",3),("Orange",5),("Grapes",4)]
+
+# print(min(fruits_prices.values()))
+
+# for fruit,price in fruits_prices.items():
+#     print(fruit,price)
+# print(sum(list(fruits_prices[key]*value for key,value in purchases)))
+
+random_list = ['1', '2', '3', 'a', 'sa23', 'as']    
+
+# something like this
 # grouping
+dict = {}
+# dict[fruits[0][0]] = [fruits[0]]
+# print(dict.keys())
+
+
+# for fruit in fruits:
+#     print(fruit)
+
+fruits = ["Avocado", "Apple", "Banana","Blackberry", "Cherry", "Cranberry","Grape", "Mango"]
+yeet = {'A': ['Apple', 'Avocado'], 'B': ['Banana', 'Blackberry']}
+# print('A' in yeet)
+for fruit in fruits:
+    # dict[fruit[0]] = []
+    # print(list(dict.keys()))
+    # first_letter = fruit
+    if fruit[0] in dict:
+        # print('in')
+        dict[fruit[0]].append(fruit)
+    else:
+        # print('else')
+        dict[fruit[0]] = []
+        dict[fruit[0]].append(fruit)
+
+for key,value in dict.items():
+    value.sort()
+# print(dict)
+
 def group_fruits(fruits:list):
     '''
     Group the fruits based on the first letter of the names. Assume first letters will be upper case.
@@ -109,7 +202,8 @@ def group_fruits(fruits:list):
     Return:
     dict: dict with the first letters as keys and list of fruits sorted in ascending order as values.
     '''
-    ...
+    dict = {}
+
 
 # binning
 def bin_fruits(fruit_prices):
@@ -128,6 +222,26 @@ def bin_fruits(fruit_prices):
     '''
     ...
 
+fruit_dict = {'Apple':7,'Banana':3,'Orange':4,'Grapes':6,'Papaya':5,'Mango':2,'Amla':1,'Jackfruit':10}
+# output_dict = {"cheap":{'Amla','Mango'},"affordable":{'Banana','Orange','Papaya','Grapes'},"costly":{'Apple','Jackfruit'}}
+empty_dict = {}
+empty_dict['cheap'] = set()
+empty_dict['affordable'] = set()
+empty_dict['costly'] =set()
+print(empty_dict)
+
+mylist = ['Amla','Mango']
+print(set(mylist))
+
+for fruit,price in fruit_dict.items():
+    if price < 3:
+        empty_dict['cheap'].add(fruit)
+    elif price >= 3 and price <= 6:
+        empty_dict['affordable'].add(fruit)
+    else:
+        empty_dict['costly'].add(fruit)
+    
+print(empty_dict)
 # Grpa - 5.3
 def index_of_first_occurance(row:list,elem):
     '''
