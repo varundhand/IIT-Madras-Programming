@@ -254,7 +254,12 @@ def index_of_last_occurance(row:list,elem):
     Given a list find the index of last occurance of 1 in it.
     Hint: use index_of_first_one with reversal.
     '''
-    ...
+the_list = [1, 0, 0,1, 2]
+position = 1000
+for x,y in enumerate(the_list):
+    if y == 1:
+        position = x
+print(position)
 
 def is_valid_coordinate(x:int,y:int, M):
     '''
