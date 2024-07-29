@@ -1,35 +1,35 @@
 # Question 1
-# number = input('enter the number')
-# mistake_count = 0
-# if number.isnumeric():
-#     print('no mistake')
-# else:
-#     for alpha in number:
-#         if alpha == 'l' or alpha == 'o':
-#             mistake_count+=1
-#     print(f'{number}\n{mistake_count} mistakes')
+number = input('enter the number')
+mistake_count = 0
+if number.isnumeric():
+    print('no mistake')
+else:
+    for alpha in number:
+        if alpha == 'l' or alpha == 'o':
+            mistake_count+=1
+    print(f'{number}\n{mistake_count} mistakes')
 
 # Question 2
-# number = input('enter the number')
-# split_number = number.split(',')
-# half_length = len(split_number)//2 # integer division
-# print(split_number)
+number = input('enter the number')
+split_number = number.split(',')
+half_length = len(split_number)//2 # integer division
+print(split_number)
 
-# leftHalf = 0
-# rightHalf = 0
+leftHalf = 0
+rightHalf = 0
 
-# for i in range(half_length):
-#     leftHalf += int(split_number[i])
+for i in range(half_length):
+    leftHalf += int(split_number[i])
 
-# for i in range((half_length), len(split_number)):
-#     rightHalf += int(split_number[i])
+for i in range((half_length), len(split_number)):
+    rightHalf += int(split_number[i])
 
-# if leftHalf > rightHalf:
-#     print('left')
-# elif leftHalf < rightHalf:
-#     print('right')
-# else:
-#     print('balanced')
+if leftHalf > rightHalf:
+    print('left')
+elif leftHalf < rightHalf:
+    print('right')
+else:
+    print('balanced')
 
 # Question 3
 matrix = [
@@ -87,7 +87,7 @@ def exact_count(string_para,n):
 # newDict = {}
 # newDict['name'] =1 
 # print(newDict)
-
+# Question 5
 list_trans = [
     {
         'TID': 'Gurunath_8528',
@@ -143,28 +143,28 @@ words = ['listen', 'silent', 'enlist']
 
 
 
-input_coins = input('enter the sequence')
+# input_coins = input('enter the sequence')
 
-number_of_coins = len(input_coins)
+# number_of_coins = len(input_coins)
 
-box_dict = { 1:0, 2:0, 3:0, 4:0, 5:0}
+# box_dict = { 1:0, 2:0, 3:0, 4:0, 5:0}
 
-count = 1
-for i in input_coins:
-    box_dict[count] += int(i)
-    count +=1 
+# count = 1
+# for i in input_coins:
+#     box_dict[count] += int(i)
+#     count +=1 
 
-    if count > 5:
-        count=1
+#     if count > 5:
+#         count=1
 
-    max_val = max(box_dict.values())
+#     max_val = max(box_dict.values())
 
-    new_box_dict = {}
-    for key,val in box_dict.items():
-        if val == max_val:
-            new_box_dict[key] = val
+#     new_box_dict = {}
+#     for key,val in box_dict.items():
+#         if val == max_val:
+#             new_box_dict[key] = val
 
-print(new_box_dict)
+# print(new_box_dict)
     
 
 # print(max(box_dict.values()))
@@ -177,3 +177,89 @@ print(new_box_dict)
 
 
 # print(new_box_dict)
+
+# Question 8
+ 
+
+
+# G_x = 1000
+# G_y = 1000
+
+# B_x = 1000
+# B_y = 1000
+
+# for i in range(len(grid)):
+#     for j in range(len(grid)):
+#         if grid[i][j] == 'G':
+#             G_x = i
+#             G_y = j
+#         elif grid[i][j] == 'B':
+#             B_x = i
+#             B_y = j
+
+# print(f'G-->{G_x},{G_y}\nB-->{B_x},{B_y}')
+# print((abs(B_x-G_x))+ (abs(B_y-G_y)))
+
+
+def is_reachable(matrix):
+    G_x = 1000
+    G_y = 1000
+
+    B_x = 1000
+    B_y = 1000
+
+    for i in range(len(matrix)):
+        for j in range(len(matrix)):
+            if matrix[i][j] == 'G':
+                G_x = i
+                G_y = j
+            elif matrix[i][j] == 'B':
+                B_x = i
+                B_y = j
+
+    total = abs(B_x-G_x) + abs(G_y-B_y)
+    if B_x >= G_x and G_y >= B_y:
+        return True, total
+    else:
+        return False, None
+
+grid = [
+    ['W', 'W', 'W', 'W', 'W'],
+    ['W', 'W', 'W', 'W', 'W'],
+    ['W', 'B', 'W', 'W', 'W'],
+    ['W', 'W', 'W', 'W', 'G'],
+    ['W', 'W', 'W', 'W', 'W']
+]
+
+# print(is_reachable(grid))
+
+# Question 9
+def is_prime(n):
+    if n == 1:
+        return False
+    for i in range(2,n):
+        if n%i == 0:
+            return False
+    return True
+     
+
+def is_twin_prime(p,q):
+    P = 0
+    Q = 0
+    if is_prime(p):
+        P = p
+    if is_prime(q):
+        Q = q
+    # print(Q)
+
+    if P and Q:
+        if abs(P-Q) == 2:
+            # print('if')
+            return True
+        else:
+            # print(abs(P-Q))
+            # print('else')
+            return False
+    return False
+
+print(is_twin_prime(5,7))
