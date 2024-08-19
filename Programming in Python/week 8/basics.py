@@ -22,17 +22,18 @@
 # f.write('\nThis is the appended line')
 
 # 'seek' is used to seek 
-f = open('sample.txt', 'r')
-seeked = f.seek(2)
-s = f.read(2)
+# f = open('sample.txt', 'r')
+# seeked = f.seek(2)
+# s = f.read(2)
 
-print(s)
+# print(s)
 
-string_text = f.read()
+# # read makes the text into string
+# string_text = f.read()
 
-check_word = 'varun'
+# check_word = 'varun'
 
-print(check_word in string_text)
+# print(check_word in string_text)
 
 #! Big text file handling
 # finding a number from a file 
@@ -111,4 +112,26 @@ print(check_word in string_text)
 
 # r.close()
 # w.close()
+
+#! CSV file handling
+# import csv
+
+# def improvement(x):
+#     """
+#     Find all students who have shown an improvement
+    
+#     Argument:
+#         filename: string, path to file
+#     Return: 
+#         count: integer
+#     """
+#     f = open(x,'r')
+#     reader = csv.DictReader(f)
+#     count = 0
+    
+#     for row in reader:
+#         if ( int(row['CT']) < int(row['Python']) and int(row['Python']) < int(row['PDSA']) ):
+#             count += 1 
+            
+#     return count
     
