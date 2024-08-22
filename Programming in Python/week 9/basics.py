@@ -46,5 +46,22 @@ def obvious_search(L,k):
             return 1
     return 0
 
-L = list(range(1,100))
-print(L)
+L = list(range(1,101))
+# print(L)
+# print(obvious_search(L, 50))    
+
+# using time.time() to measure the time taken by obvious_search
+
+import time 
+
+a = time.time()
+print(obvious_search(L, 50))
+b = time.time()
+print('it started at', a,'and ended at', b)
+
+
+#! importing functions from different files
+import functions 
+
+functions.firstFunc('varun')
+# printName('varun')
