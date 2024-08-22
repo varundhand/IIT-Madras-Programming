@@ -32,7 +32,7 @@
 # string_text = f.read()
 
 # check_word = 'varun'
-
+ 
 # print(check_word in string_text)
 
 #! Big text file handling
