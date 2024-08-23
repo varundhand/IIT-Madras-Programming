@@ -15,7 +15,7 @@ def binary_search(L, k):
             return 1
         if (L[mid] > k):
             end = mid - 1  # -1
-        if (L[mid] < k):
+        if (L[mid] < k): 
             begin = mid + 1  # +1
 
     # if len(L) == 1 and L[0] == k:

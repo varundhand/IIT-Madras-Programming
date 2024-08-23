@@ -49,7 +49,7 @@ def obvious_search(L,k):
 L = list(range(1,101))
 # print(L)
 # print(obvious_search(L, 50))    
-
+ 
 # using time.time() to measure the time taken by obvious_search
 
 import time 
