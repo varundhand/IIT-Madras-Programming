@@ -1,20 +1,20 @@
-#! file handling
+# ! file handling
 # 'w' mode will create a file if it does not exist
-# f = open('sample.txt', 'w')
-# f.write('Hello World')
-# f.write('\nThis is the new line')
-# f.close()
+f = open('sample.txt', 'w')
+f.write('Hello World')
+f.write('\nThis is the new line')
+f.close()
 
-# # 'r' mode will read a file
-# f = open('sample.txt', 'r')
-# s = f.read()
-# # print(s, type(s))
-# f.close()
+# 'r' mode will read a file
+f = open('sample.txt', 'r')
+s = f.read()
+# print(s, type(s))
+f.close()
 
-# # 'a' mode will append to a file
-# f = open('sample.txt', 'a')
-# f.write('\nThis is the appended line')
-# f.close()
+# 'a' mode will append to a file
+f = open('sample.txt', 'a')
+f.write('\nThis is the appended line')
+f.close()
 
 # # 'r+' mode will read and write to a file
 # f = open('sample.txt', 'r+')
@@ -39,24 +39,24 @@
 # finding a number from a file 
 # method 1
 
-# f = open('numbers.txt', 'r')
-# # print(f.readline())
-# list_of_numbers = f.readlines()
+f = open('numbers.txt', 'r')
+# print(f.readline())
+list_of_numbers = f.readlines()
 
-# Flag = False
+Flag = False
 
-# for i in range(len(list_of_numbers)):
-#     list_of_numbers[i] = int(list_of_numbers[i])
+for i in range(len(list_of_numbers)):
+    list_of_numbers[i] = int(list_of_numbers[i])
 
-#     if int(list_of_numbers[i]) == 7:
-#         Flag = True
-#     else:
-#         Flag = False
+    if int(list_of_numbers[i]) == 7:
+        Flag = True
+    else:
+        Flag = False
 
-# if Flag == True:
-#     print('Number Found')
-# else:
-#     print('Number Not Found')
+if Flag == True:
+    print('Number Found')
+else:
+    print('Number Not Found')
 
 # method 2
 
@@ -87,18 +87,18 @@
 
 #! Caesar Cipher
 
-# import string
+import string
 
-# def create_cipher_dict():
-#     l = string.ascii_lowercase
-#     l = list(l)
-#     d = {}
-#     for i in range(len(l)):
-#         d[l[i]] = l[(i+3)%26]
+def create_cipher_dict():
+    l = string.ascii_lowercase
+    l = list(l)
+    d = {}
+    for i in range(len(l)):
+        d[l[i]] = l[(i+3)%26]
 
-#     return d
+    return d
 
-# # print(create_cipher_dict())
+# print(create_cipher_dict())
 
 # r = open('sample.txt', 'r')
 # w = open('encrypted_sample.txt', 'w')
