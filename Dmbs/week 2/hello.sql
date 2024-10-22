@@ -11,7 +11,15 @@ create table test(
 
 -- adding a column to the table
 alter table test
-add another_column VARCHAR(255);
+add column another_column VARCHAR(255);
+
+-- deleting a column from the table
+alter table test
+drop column another_column;
+
+-- renaming a column
+alter table test
+rename column test_column to new_column;
 
 -- deleting table from the database
 drop table test;
@@ -88,7 +96,18 @@ where name like '%the%';
 delete from albums 
 where id = 5;
 
+--! Truncate 
+-- truncate is used to delete all the rows from the table
+truncate table albums, bands; -- deletes data from both tables 
+--! By default, truncate table doesnt remove any data from the table if it has foreign key constraints, so we need to use CASADE
+truncate table albums CASADE; -- deletes data from the table with foreign key constraints
+
+
 --!* JOINS
+-- natural join is used to combine rows from two or more tables based on the same column name
+select * from bands
+natural join albums;
+
 --! inner join is used to combine rows from two or more tables based on a related column between them
 select * from bands 
 inner join albums on bands.id = albums.band_id;
@@ -105,4 +124,11 @@ left join albums on bands.id = albums.band_id;
 select * from bands 
 right join albums on bands.id = albums.band_id;
 
---!* Aggregate Functions
+--!* Aggregate functions
+select avg(release_year) from albums;
+
+-- counting the number of albums released by each band
+select band_id, count(band_id) from albums
+group by band_id;
+
+
