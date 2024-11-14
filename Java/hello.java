@@ -116,3 +116,12 @@ int[][] myNumbers = { {1, 2, 3, 4}, {5, 6, 7} };
 int x = myNumbers[1][2]; // returns 7
 
 //! casting 
+// Explicit Casting
+int p = 100;
+int fP = p + (int)18.992;
+
+// contstants 
+final double yeet = 22.0/7;
+System.out.println(yeet);
+
+
