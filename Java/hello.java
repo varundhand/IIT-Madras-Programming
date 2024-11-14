@@ -80,6 +80,9 @@ system.out.println(marks[0]); // prints 97
 
 //! Java by default initializes the array with 0 for int, 0.0 for float, false for boolean, null for string
 
+import Java.util.Arrays; //! use this import stament to use array methods
+// import Java.util.*; // this imports all the classes in the util package
+
 //* Array methods 
 // length - returns the length of the array
 int len = marks.length; // returns 3
@@ -108,7 +111,8 @@ int index = Arrays.binarySearch(marks, 10); // returns 0
 // asList - converts an array to a list
 List<int> list = Arrays.asList(marks); // list = [10, 10, 10]
 
-// Array of Arrays
+// Array of Arrays (2D arrays)
 int[][] myNumbers = { {1, 2, 3, 4}, {5, 6, 7} };
 int x = myNumbers[1][2]; // returns 7
 
+//! casting 
