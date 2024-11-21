@@ -108,7 +108,7 @@ int[] marks = {21,32,24};
 
 //! declaring functions
 public static void printJava(){
-    System.out.println("Hello world from Java");
+    (int )
 };
 
 public static void helloName(String name){
@@ -119,6 +119,12 @@ public static void helloName(String name){
     return a + b;
 };
   
+for (int m : marks){
+    if (m %2 == 0){
+    System.out.println(m);
+    }
+}
+
 helloName("Varun");
 int sumOfNumbers = sum(10, 20);
 
